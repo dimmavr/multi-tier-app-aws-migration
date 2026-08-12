@@ -1,0 +1,12 @@
+[Unit]
+Description=backup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/admin/backup.sh
+User=admin
+
+[Install]
+WantedBy=multi-user.target

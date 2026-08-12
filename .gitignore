@@ -1,0 +1,6 @@
+.pgpass
+.aws/
+*.env
+*.key
+id_ed25519*
+*.pem

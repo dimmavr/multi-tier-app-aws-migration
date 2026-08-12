@@ -1,0 +1,18 @@
+[Unit]
+Description=Flask app via Gunicorn
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=admin
+WorkingDirectory=/home/admin/app/current
+Environment=DB_PASS=123456
+Environment=DB_HOST=migration-db.ctom284y0569.eu-central-1.rds.amazonaws.com
+Environment=DB_USER=dbadmin
+Environment=DB_PASS=12345678
+ExecStart=/home/admin/app/venv/bin/gunicorn --workers 2 --bind 127.0.0.1:8000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
